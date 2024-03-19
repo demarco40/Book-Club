@@ -1,6 +1,6 @@
 // Fetch the books data from the JSON file
-fetch('books.json')
-    .then(response => response.json())
+fetch('books.JSON')
+    .then(response => response.JSON())
     .then(data => {
         const booksContainer = document.getElementById('booksContainer');
         // Clear previous content
