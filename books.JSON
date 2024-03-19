@@ -8,7 +8,7 @@
         "pages": 312,
         "wordCount": 93288,
         "averageRating": 8.7,
-        "imageUrl": "janurary.jpg"
+        "imageUrl": "pictures/janurary.jpg"
     },
     {
 		"month": "February",
@@ -19,7 +19,7 @@
         "pages": 600,
         "wordCount": 297135,
         "averageRating": 6.95,
-        "imageUrl": "february.jpg"
+        "imageUrl": "pictures/february.jpg"
     },
     {
 		"month": "March",
@@ -29,8 +29,7 @@
         "genre": "Fantasy",
         "pages": 432,
         "wordCount": 177227,
-        "averageRating": ,
-        "imageUrl": "march.jpg"
+        "averageRating": 0,
+        "imageUrl": "pictures/march.jpg"
     }
-    // Add more books as per your list
 ]

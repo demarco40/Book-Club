@@ -13,11 +13,12 @@ fetch('books.json')
 
             // Set the innerHTML of the book card with book details
             bookCard.innerHTML = `
+				<div class="book-month">${book.month}</div>
                 <img src="${book.imageUrl}" alt="${book.title}" class="book-image">
                 <div class="book-details">
                     <h2>${book.title}</h2>
-					<p>Author: ${book.month}</p>
-					<p>Author: ${book.selector}</p>
+					<p>Month: ${book.month}</p>
+					<p>Selector: ${book.selector}</p>
                     <p>Author: ${book.author}</p>
                     <p>Genre: ${book.genre}</p>
                     <p>Pages: ${book.pages}</p>

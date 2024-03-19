@@ -1,7 +1,25 @@
-body {
-    background-color: #f5f5f5; /* Soft gray background */
+html, body {
+    height: 100%;
     margin: 0;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Optional: Sets a nice font for the Material Design look */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #dedcdc;
+}
+
+.books-container {
+    flex: 1;
+}
+
+header, footer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
 .books-container {
@@ -12,7 +30,17 @@ body {
     padding: 20px;
 }
 
+.book-month {
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
 .book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: calc(33.333% - 20px); /* Adjusts card width for 3-column layout */
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
