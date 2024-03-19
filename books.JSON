@@ -1,0 +1,36 @@
+[
+    {
+        "month": "Janurary",
+		"selector": "Louis",
+		"title": "A Very Punchable Face",
+        "author": "Colin Jost",
+        "genre": "Memoir",
+        "pages": 312,
+        "wordCount": 93288,
+        "averageRating": 8.7,
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1585145237i/48989372.jpg"
+    },
+    {
+		"month": "February",
+		"selector": "Jordan",
+        "title": "Children of Time",
+        "author": "Adrian Tchaikovsky",
+        "genre": "Science Fiction",
+        "pages": 600,
+        "wordCount": 297135,
+        "averageRating": 6.95,
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1431014197i/25499718.jpg"
+    },
+    {
+		"month": "March",
+		"selector": "Matt",
+        "title": "The Fellowship of The Ring",
+        "author": "J.R.R Tolkien",
+        "genre": "Fantasy",
+        "pages": 432,
+        "wordCount": 177227,
+        "averageRating": ,
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654215925i/61215351.jpg"
+    }
+    // Add more books as per your list
+]
