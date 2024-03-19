@@ -29,8 +29,18 @@ fetch('books.json')
 
             // Append the book card to the container
             booksContainer.appendChild(bookCard);
+			
+			// Add click event listener to toggle the visibility of book details
+			bookCard.addEventListener('click', function() {
+			const details = this.querySelector('.book-details');
+			if (details.style.display === 'block') {
+				details.style.display = 'none';
+			} else {
+				details.style.display = 'block';
+			}
         });
     })
+	
     .catch(error => {
         console.error('Error loading book data:', error);
         // Handle errors, such as by displaying a message to the user
