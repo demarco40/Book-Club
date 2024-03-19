@@ -34,6 +34,3 @@ fetch('books.json')
         console.error('Error loading book data:', error);
         // Handle errors, such as by displaying a message to the user
     });
-
-	
-	
