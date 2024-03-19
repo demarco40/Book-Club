@@ -1,5 +1,5 @@
 // Fetch the books data from the JSON file
-fetch('books.JSON')
+fetch('books.json')
     .then(response => response.json())
     .then(data => {
         const booksContainer = document.getElementById('booksContainer');
