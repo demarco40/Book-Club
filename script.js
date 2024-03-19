@@ -3,25 +3,37 @@ fetch('books.json')
     .then(response => response.json())
     .then(data => {
         const booksContainer = document.getElementById('booksContainer');
+        // Clear previous content
+        booksContainer.innerHTML = '';
+        // Iterate over each book in the data array
         data.forEach(book => {
-            // Create book element
-            const bookElement = document.createElement('div');
-            bookElement.classList.add('book');
-            bookElement.innerHTML = `
+            // Create the outer book card div
+            const bookCard = document.createElement('div');
+            bookCard.classList.add('book');
+
+            // Set the innerHTML of the book card with book details
+            bookCard.innerHTML = `
                 <img src="${book.imageUrl}" alt="${book.title}" class="book-image">
                 <div class="book-details">
                     <h2>${book.title}</h2>
-                    <p>Author: ${book.month}</p>
+					<p>Author: ${book.month}</p>
 					<p>Author: ${book.selector}</p>
-					<p>Author: ${book.author}</p>
+                    <p>Author: ${book.author}</p>
                     <p>Genre: ${book.genre}</p>
                     <p>Pages: ${book.pages}</p>
                     <p>Word Count: ${book.wordCount}</p>
                     <p>Average Rating: ${book.averageRating}</p>
                 </div>
             `;
-            // Append the book element to the container
-            booksContainer.appendChild(bookElement);
+
+            // Append the book card to the container
+            booksContainer.appendChild(bookCard);
         });
     })
-    .catch(error => console.error('Error loading book data:', error));
+    .catch(error => {
+        console.error('Error loading book data:', error);
+        // Handle errors, such as by displaying a message to the user
+    });
+
+	
+	
