@@ -29,8 +29,19 @@
         "genre": "Fantasy",
         "pages": 432,
         "wordCount": 177227,
-        "averageRating": 0,
+        "averageRating": 7.0,
         "imageUrl": "pictures/march.jpg"
-    }
+    },
+	{
+		"month": "April",
+		"selector": "Adam",
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "genre": "Science Fiction",
+        "pages": 384,
+        "wordCount": 104588,
+        "averageRating": 0,
+        "imageUrl": "pictures/april.jpg"
+    },
 ]
 
