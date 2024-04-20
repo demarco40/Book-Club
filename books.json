@@ -40,7 +40,18 @@
         "genre": "Science Fiction",
         "pages": 384,
         "wordCount": 104588,
-        "averageRating": 0,
+        "averageRating": 9.5,
         "imageUrl": "pictures/april.jpg"
+    },
+	{
+		"month": "May",
+		"selector": "Mikayla",
+        "title": "Billy Summers",
+        "author": "Stephen King",
+        "genre": "Fiction/Thriller",
+        "pages": 528,
+        "wordCount": 153985,
+        "averageRating": 0,
+        "imageUrl": "pictures/may.jpg"
     }
 ]
