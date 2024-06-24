@@ -51,7 +51,18 @@
         "genre": "Fiction/Thriller",
         "pages": 528,
         "wordCount": 153985,
-        "averageRating": 0,
+        "averageRating": 8.3,
         "imageUrl": "pictures/may.jpg"
+    },
+    {
+        "month": "June",
+        "selector": "Catherine",
+        "title": "The Yards Between Us",
+        "author": "R.K. Russel",
+        "genre": "Memoir",
+        "pages": 304,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/june.jpg"
     }
 ]
