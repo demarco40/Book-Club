@@ -64,5 +64,27 @@
         "wordCount": 0,
         "averageRating": 0,
         "imageUrl": "pictures/june.jpg"
+    },
+    {
+        "month": "July",
+        "selector": "Louis",
+        "title": "11-22-63",
+        "author": "Stephen King",
+        "genre": "Historical Alternate Fiction",
+        "pages": 849,
+        "wordCount": 266800,
+        "averageRating": 0,
+        "imageUrl": "pictures/july.jpg"
+    },
+    {
+        "month": "August",
+        "selector": "Jordan",
+        "title": "Piranesi",
+        "author": "Susanna Clark",
+        "genre": "Fantasy",
+        "pages": 272,
+        "wordCount": 85000,
+        "averageRating": 0,
+        "imageUrl": "pictures/august.jpg"
     }
 ]
