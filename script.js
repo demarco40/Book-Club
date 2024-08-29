@@ -1,45 +1,89 @@
-// Function to display all previous books
-function displayPreviousBooks(books) {
-    const previousBooksContainer = document.getElementById('previousBooksContainer');
-    previousBooksContainer.innerHTML = ''; // Clear any existing content
+// Fetch the books data from the JSON file
+fetch('books.json')
+    .then(response => response.json())
+    .then(data => {
+        const books = data;
 
-    books.forEach(book => {
-        const bookElement = document.createElement('div');
-        bookElement.classList.add('book');
+        // Fetch the current month
+        const currentMonth = new Date().toLocaleString('default', { month: 'long' });
 
-        const bookImage = document.createElement('img');
-        bookImage.src = book.imageUrl;
-        bookImage.classList.add('book-image');
-        bookElement.appendChild(bookImage);
+        // Find the current month's book
+        const currentBook = books.find(book => book.month.toLowerCase() === currentMonth.toLowerCase());
 
-        const bookTitle = document.createElement('h2');
-        bookTitle.textContent = book.title;
-        bookElement.appendChild(bookTitle);
+        // Function to display the current book
+        function displayCurrentBook(book) {
+            const booksContainer = document.getElementById('booksContainer');
+            booksContainer.innerHTML = ''; // Clear any existing content
 
-        const bookAuthor = document.createElement('p');
-        bookAuthor.textContent = `by ${book.author}`;
-        bookElement.appendChild(bookAuthor);
+            if (book) {
+                const bookElement = document.createElement('div');
+                bookElement.classList.add('book');
 
-        // Add event listener to navigate to the book details page
-        bookElement.addEventListener('click', () => {
-            window.location.href = `book-details.html?month=${book.month}`;
+                const bookImage = document.createElement('img');
+                bookImage.src = book.imageUrl;
+                bookImage.classList.add('book-image');
+                bookElement.appendChild(bookImage);
+
+                const bookTitle = document.createElement('h2');
+                bookTitle.textContent = book.title;
+                bookElement.appendChild(bookTitle);
+
+                const bookAuthor = document.createElement('p');
+                bookAuthor.textContent = `by ${book.author}`;
+                bookElement.appendChild(bookAuthor);
+
+                booksContainer.appendChild(bookElement);
+            } else {
+                booksContainer.textContent = 'No book selected for this month.';
+            }
+        }
+
+        // Function to display all previous books
+        function displayPreviousBooks(books) {
+            const previousBooksContainer = document.getElementById('previousBooksContainer');
+            previousBooksContainer.innerHTML = ''; // Clear any existing content
+
+            books.forEach(book => {
+                const bookElement = document.createElement('div');
+                bookElement.classList.add('book');
+
+                const bookImage = document.createElement('img');
+                bookImage.src = book.imageUrl;
+                bookImage.classList.add('book-image');
+                bookElement.appendChild(bookImage);
+
+                const bookTitle = document.createElement('h2');
+                bookTitle.textContent = book.title;
+                bookElement.appendChild(bookTitle);
+
+                const bookAuthor = document.createElement('p');
+                bookAuthor.textContent = `by ${book.author}`;
+                bookElement.appendChild(bookAuthor);
+
+                // Add event listener to navigate to the book details page
+                bookElement.addEventListener('click', () => {
+                    window.location.href = `book-details.html?month=${book.month}`;
+                });
+
+                previousBooksContainer.appendChild(bookElement);
+            });
+        }
+
+        // Handle tab switching
+        document.getElementById('homeTab').addEventListener('click', () => {
+            document.getElementById('booksContainer').style.display = 'block';
+            document.getElementById('previousBooksContainer').style.display = 'none';
         });
 
-        previousBooksContainer.appendChild(bookElement);
+        document.getElementById('previousBooksTab').addEventListener('click', () => {
+            document.getElementById('booksContainer').style.display = 'none';
+            document.getElementById('previousBooksContainer').style.display = 'block';
+            displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
+        });
+
+        // Initially, display only the current month's book
+        displayCurrentBook(currentBook);
+    })
+    .catch(error => {
+        console.error('Error loading books:', error);
     });
-}
-
-// Handle tab switching
-document.getElementById('homeTab').addEventListener('click', () => {
-    document.getElementById('booksContainer').style.display = 'block';
-    document.getElementById('previousBooksContainer').style.display = 'none';
-});
-
-document.getElementById('previousBooksTab').addEventListener('click', () => {
-    document.getElementById('booksContainer').style.display = 'none';
-    document.getElementById('previousBooksContainer').style.display = 'block';
-    displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
-});
-
-// Initially, display only the current month's book
-displayCurrentBook(currentBook);
