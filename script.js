@@ -1,16 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
+    function showSectionBasedOnHash(books, currentMonth) {
+        const booksContainer = document.getElementById('booksContainer');
+        const previousBooksContainer = document.getElementById('previousBooksContainer');
+
+        const hash = window.location.hash;
+
+        if (hash === '#previousBooksTab') {
+            booksContainer.style.display = 'none';
+            previousBooksContainer.style.display = 'block';
+            displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
+        } else {
+            booksContainer.style.display = 'block';
+            previousBooksContainer.style.display = 'none';
+            displayCurrentBook(books.find(book => book.month.toLowerCase() === currentMonth.toLowerCase()));
+        }
+    }
+
     fetch('books.json')
         .then(response => response.json())
         .then(books => {
-            const booksContainer = document.getElementById('booksContainer');
-            const previousBooksContainer = document.getElementById('previousBooksContainer');
-            const homeLink = document.querySelector('nav a[href="index.html"]');
-            const previousBooksLink = document.querySelector('nav a[href="#previousBooksTab"]');
-            
             const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-            const currentBook = books.find(book => book.month.toLowerCase() === currentMonth.toLowerCase());
+
+            // Initial load
+            showSectionBasedOnHash(books, currentMonth);
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', () => {
+                showSectionBasedOnHash(books, currentMonth);
+            });
 
             function displayCurrentBook(book) {
+                const booksContainer = document.getElementById('booksContainer');
                 booksContainer.innerHTML = ''; // Clear any existing content
 
                 if (book) {
@@ -63,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             function displayPreviousBooks(books) {
+                const previousBooksContainer = document.getElementById('previousBooksContainer');
                 previousBooksContainer.innerHTML = ''; 
 
                 books.forEach(book => {
@@ -89,26 +110,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     previousBooksContainer.appendChild(bookElement);
                 });
             }
-
-            // Initially display the current book
-            displayCurrentBook(currentBook);
-
-            // Event listener for "Home" link
-            homeLink.addEventListener('click', (event) => {
-                event.preventDefault();
-                booksContainer.style.display = 'block';
-                previousBooksContainer.style.display = 'none';
-                displayCurrentBook(currentBook);
-            });
-
-            // Event listener for "Previous Books" link
-            previousBooksLink.addEventListener('click', (event) => {
-                event.preventDefault();
-                booksContainer.style.display = 'none';
-                previousBooksContainer.style.display = 'block';
-                displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
-            });
-
         })
         .catch(error => {
             console.error('Error loading books:', error);
