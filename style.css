@@ -131,3 +131,61 @@ nav a:hover {
 #returnButton:hover {
     background-color: #555;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 160px; /* Adjust to ensure content clears the fixed header on mobile */
+    }
+
+    header {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 1em;
+    }
+
+    .container {
+        padding-top: 140px; /* Ensure content is visible below the header */
+    }
+
+    .books-container,
+    .previous-books-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .book-container {
+        max-width: 90%; /* Allow books to take more space on smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .book-image {
+        max-width: 100%;
+    }
+
+    .book-details-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .chart-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .book-info {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #showCoverButton,
+    #returnButton {
+        width: 100%;
+        padding: 10px;
+    }
+}

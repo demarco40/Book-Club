@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const hash = window.location.hash;
+
     fetch('books.json')
         .then(response => response.json())
         .then(books => {
@@ -88,18 +90,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
 
-            document.getElementById('homeTab').addEventListener('click', () => {
-                document.getElementById('booksContainer').style.display = 'block';
-                document.getElementById('previousBooksContainer').style.display = 'none';
-            });
-
-            document.getElementById('previousBooksTab').addEventListener('click', () => {
+            if (hash === '#previousBooksTab') {
                 document.getElementById('booksContainer').style.display = 'none';
                 document.getElementById('previousBooksContainer').style.display = 'block';
                 displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
-            });
-
-            displayCurrentBook(currentBook);
+            } else {
+                displayCurrentBook(currentBook);
+            }
         })
         .catch(error => {
             console.error('Error loading books:', error);
