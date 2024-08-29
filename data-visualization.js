@@ -1,50 +1,53 @@
-// Sample data - assuming 'books' variable is already available
-const books = [
-    // Add your books array here
-];
+// Fetch the books data from the JSON file
+fetch('books.json')
+    .then(response => response.json())
+    .then(books => {
+        console.log('Books data loaded:', books); // Debugging: Log the books data
 
-// Function to generate chart data based on selected type
-function getChartData(type) {
-    return books.map(book => ({
-        label: book.title,
-        value: book[type] || 0
-    }));
-}
+        // Aggregate data for visualizations
+        const pageCounts = books.map(book => book.pages);
+        const wordCounts = books.map(book => book.wordCount);
+        const averageRatings = books.map(book => book.averageRating);
 
-// Function to create the chart
-function createChart(chartData) {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    if (window.myChart) {
-        window.myChart.destroy();
-    }
-    window.myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: chartData.map(data => data.label),
-            datasets: [{
-                label: 'Book Data',
-                data: chartData.map(data => data.value),
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        // Create a chart
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: books.map(book => book.title),
+                datasets: [
+                    {
+                        label: 'Pages',
+                        data: pageCounts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Word Count',
+                        data: wordCounts,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Average Rating',
+                        data: averageRatings,
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
+    })
+    .catch(error => {
+        console.error('Error loading books:', error);
     });
-}
-
-// Event listener for data type selection
-document.getElementById('dataType').addEventListener('change', function() {
-    const selectedType = this.value;
-    const chartData = getChartData(selectedType);
-    createChart(chartData);
-});
-
-// Initialize chart with default data type
-createChart(getChartData('pages'));

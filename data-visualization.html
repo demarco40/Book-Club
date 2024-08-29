@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization</title>
+    <title>Data Analysis</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
 </head>
 <body>
     <header>
-        <h1>Book Club Data Visualization</h1>
+        <h1>Data Analysis</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#previousBooksTab">Previous Books</a>
+            <a href="data-visualization.html">Data Analysis</a>
+        </nav>
     </header>
     <div class="chart-container">
         <canvas id="myChart"></canvas>
-    </div>
-    <div class="controls">
-        <label for="dataType">Select Data Type:</label>
-        <select id="dataType">
-            <option value="pages">Pages</option>
-            <option value="wordCount">Word Count</option>
-            <option value="averageRating">Average Rating</option>
-        </select>
     </div>
     <script src="data-visualization.js"></script>
 </body>
