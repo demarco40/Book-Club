@@ -1,44 +1,45 @@
-// Fetch the books data from the JSON file
-fetch('books.json')
-.then(response => response.json())
-.then(data => {
-    const booksContainer = document.getElementById('booksContainer');
-    // Clear previous content
-    booksContainer.innerHTML = '';
-    // Iterate over each book in the data array
-    data.forEach(book => {
-        // Create the outer book card div
-        const bookCard = document.createElement('div');
-        bookCard.classList.add('book');
-        
-        // Set the innerHTML of the book card with book details
-        bookCard.innerHTML = `
-            <div class="book-month">${book.month}</div>
-            <img src="${book.imageUrl}" alt="${book.title}" class="book-image">
-            <div class="book-details">
-                <h2>${book.title}</h2>
-				<p>Month: ${book.month}</p>
-				<p>Selector: ${book.selector}</p>
-                <p>Author: ${book.author}</p>
-                <p>Genre: ${book.genre}</p>
-                <p>Pages: ${book.pages}</p>
-                <p>Word Count: ${book.wordCount}</p>
-                <p>Average Rating: ${book.averageRating}</p>
-            </div>
-        `;
-        
-        // Append the book card to the container
-        booksContainer.appendChild(bookCard);
+// Function to display all previous books
+function displayPreviousBooks(books) {
+    const previousBooksContainer = document.getElementById('previousBooksContainer');
+    previousBooksContainer.innerHTML = ''; // Clear any existing content
 
-        // Add click event listener to toggle the visibility of book details
-        bookCard.addEventListener('click', function() {
-            const details = this.querySelector('.book-details');
-            if (details.style.display === 'block') {
-                details.style.display = 'none';
-            } else {
-                details.style.display = 'block';
-            }
+    books.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.classList.add('book');
+
+        const bookImage = document.createElement('img');
+        bookImage.src = book.imageUrl;
+        bookImage.classList.add('book-image');
+        bookElement.appendChild(bookImage);
+
+        const bookTitle = document.createElement('h2');
+        bookTitle.textContent = book.title;
+        bookElement.appendChild(bookTitle);
+
+        const bookAuthor = document.createElement('p');
+        bookAuthor.textContent = `by ${book.author}`;
+        bookElement.appendChild(bookAuthor);
+
+        // Add event listener to navigate to the book details page
+        bookElement.addEventListener('click', () => {
+            window.location.href = `book-details.html?month=${book.month}`;
         });
+
+        previousBooksContainer.appendChild(bookElement);
     });
-})
-.catch(error => console.error('Error loading book data:', error));
+}
+
+// Handle tab switching
+document.getElementById('homeTab').addEventListener('click', () => {
+    document.getElementById('booksContainer').style.display = 'block';
+    document.getElementById('previousBooksContainer').style.display = 'none';
+});
+
+document.getElementById('previousBooksTab').addEventListener('click', () => {
+    document.getElementById('booksContainer').style.display = 'none';
+    document.getElementById('previousBooksContainer').style.display = 'block';
+    displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
+});
+
+// Initially, display only the current month's book
+displayCurrentBook(currentBook);

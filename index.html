@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header>
+    <header>
         <h1>Big Book Fans 2024 Book Club</h1>
-	</header>
-    <div class="books-container" id="booksContainer">
-        <!-- Books will be dynamically inserted here by script.js -->
+        <nav>
+            <a href="#" id="homeTab">Current Book</a>
+            <a href="#" id="previousBooksTab">Previous Books</a>
+        </nav>
+    </header>
+    <div class="content-container">
+        <div class="books-container" id="booksContainer">
+            <!-- Current month's book will be dynamically inserted here -->
+        </div>
+        <div class="books-container" id="previousBooksContainer" style="display:none;">
+            <!-- Previous books will be dynamically inserted here -->
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
