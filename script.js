@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const hash = window.location.hash;
-
     fetch('books.json')
         .then(response => response.json())
         .then(books => {
             const booksContainer = document.getElementById('booksContainer');
             const previousBooksContainer = document.getElementById('previousBooksContainer');
-
+            const homeLink = document.querySelector('nav a[href="index.html"]');
+            const previousBooksLink = document.querySelector('nav a[href="#previousBooksTab"]');
+            
             const currentMonth = new Date().toLocaleString('default', { month: 'long' });
             const currentBook = books.find(book => book.month.toLowerCase() === currentMonth.toLowerCase());
 
@@ -90,13 +90,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
 
-            if (hash === '#previousBooksTab') {
-                document.getElementById('booksContainer').style.display = 'none';
-                document.getElementById('previousBooksContainer').style.display = 'block';
-                displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
-            } else {
+            // Initially display the current book
+            displayCurrentBook(currentBook);
+
+            // Event listener for "Home" link
+            homeLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                booksContainer.style.display = 'block';
+                previousBooksContainer.style.display = 'none';
                 displayCurrentBook(currentBook);
-            }
+            });
+
+            // Event listener for "Previous Books" link
+            previousBooksLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                booksContainer.style.display = 'none';
+                previousBooksContainer.style.display = 'block';
+                displayPreviousBooks(books.filter(book => book.month.toLowerCase() !== currentMonth.toLowerCase()));
+            });
+
         })
         .catch(error => {
             console.error('Error loading books:', error);
