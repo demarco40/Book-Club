@@ -1,9 +1,7 @@
 // Fetch the books data from the JSON file
 fetch('books.json')
     .then(response => response.json())
-    .then(data => {
-        const books = data;
-
+    .then(books => {
         // Fetch the current month
         const currentMonth = new Date().toLocaleString('default', { month: 'long' });
 
