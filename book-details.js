@@ -1,4 +1,3 @@
-// Fetch the books data from the JSON file
 fetch('books.json')
     .then(response => {
         if (!response.ok) {
@@ -7,15 +6,19 @@ fetch('books.json')
         return response.json();
     })
     .then(books => {
-        // Get the book month from the URL
+        console.log('Books loaded:', books); // Debugging: Confirm books data is loaded
+
+        // Get the "month" parameter from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const bookMonth = urlParams.get('month');
+
+        console.log('URL "month" parameter:', bookMonth); // Debugging: Confirm URL parameter
 
         const bookDetailsContainer = document.getElementById('bookDetailsContainer');
         bookDetailsContainer.innerHTML = ''; // Clear any existing content
 
         if (bookMonth) {
-            // Display details for the specific book
+            console.log('Displaying book for month:', bookMonth); // Debugging: Specific book details
             const book = books.find(book => book.month.toLowerCase() === bookMonth.toLowerCase());
 
             if (book) {
@@ -35,16 +38,15 @@ fetch('books.json')
 
                 bookDetailsContainer.appendChild(bookElement);
 
-                // Add functionality to the "Back to List" button
                 document.getElementById('backToListButton').addEventListener('click', () => {
                     window.location.href = 'book-details.html';
                 });
             } else {
-                console.error(`Error: No book found for month "${bookMonth}".`);
+                console.error(`No book found for month "${bookMonth}".`);
                 bookDetailsContainer.textContent = 'Error: Book details not found.';
             }
         } else {
-            // Display all books
+            console.log('No "month" parameter in URL. Displaying all books.'); // Debugging: Display all books
             books.forEach(book => {
                 const bookElement = document.createElement('div');
                 bookElement.classList.add('book');
@@ -57,7 +59,6 @@ fetch('books.json')
                     <p><strong>Pages:</strong> ${book.pages}</p>
                 `;
 
-                // Add event listener to navigate to specific book details
                 bookElement.addEventListener('click', () => {
                     window.location.href = `book-details.html?month=${book.month}`;
                 });
