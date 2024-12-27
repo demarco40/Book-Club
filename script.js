@@ -53,32 +53,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function displayPreviousBooks(books) {
-        const previousBooksContainer = document.getElementById('previousBooksContainer');
-        previousBooksContainer.innerHTML = ''; 
+    const previousBooksContainer = document.getElementById('previousBooksContainer');
+    previousBooksContainer.innerHTML = ''; 
 
-        books.forEach(book => {
-            const bookElement = document.createElement('div');
-            bookElement.classList.add('book');
+    books.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.classList.add('book');
 
-            const bookImage = document.createElement('img');
-            bookImage.src = book.imageUrl;
-            bookImage.classList.add('book-image');
-            bookElement.appendChild(bookImage);
+        const bookImage = document.createElement('img');
+        bookImage.src = book.imageUrl;
+        bookImage.classList.add('book-image');
+        bookElement.appendChild(bookImage);
 
-            const bookTitle = document.createElement('h2');
-            bookTitle.textContent = book.title;
-            bookElement.appendChild(bookTitle);
+        const bookTitle = document.createElement('h2');
+        bookTitle.textContent = book.title;
+        bookElement.appendChild(bookTitle);
 
-            const bookAuthor = document.createElement('p');
-            bookAuthor.textContent = `by ${book.author}`;
-            bookElement.appendChild(bookAuthor);
+        const bookAuthor = document.createElement('p');
+        bookAuthor.textContent = `by ${book.author}`;
+        bookElement.appendChild(bookAuthor);
 
-            bookElement.addEventListener('click', () => {
-                window.location.href = `book-details.html?month=${book.month}`;
-            });
-
-            previousBooksContainer.appendChild(bookElement);
+        // Add Event Listener to Navigate to Book Details
+        bookElement.addEventListener('click', () => {
+            window.location.href = `book-details.html?month=${book.month}`;
         });
+
+        previousBooksContainer.appendChild(bookElement);
+    });
     }
 
     function showSectionBasedOnHash(books, currentMonth) {

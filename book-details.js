@@ -7,16 +7,21 @@ fetch('books.json')
         return response.json();
     })
     .then(books => {
-        console.log('Books data loaded:', books); // Debugging: Log the books data
-
         // Get the book month from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const bookMonth = urlParams.get('month');
+
+        if (!bookMonth) {
+            console.error('Error: "month" parameter is missing in the URL.');
+            document.body.textContent = 'Error: No book information available. Please select a book.';
+            return;
+        }
 
         // Find the book details from the books array
         const book = books.find(book => book.month.toLowerCase() === bookMonth.toLowerCase());
 
         if (book) {
+            // Populate the book details
             document.getElementById('bookTitle').textContent = book.title;
             document.getElementById('bookImage').src = book.imageUrl;
             document.getElementById('bookAuthor').textContent = `Author: ${book.author}`;
@@ -24,21 +29,12 @@ fetch('books.json')
             document.getElementById('bookPages').textContent = `Pages: ${book.pages}`;
             document.getElementById('bookWordCount').textContent = `Word Count: ${book.wordCount}`;
             document.getElementById('bookRating').textContent = `Average Rating: ${book.averageRating}`;
-
-            // Add a button to return to the previous books list
-            const returnButton = document.createElement('button');
-            returnButton.textContent = 'Back to List';
-            returnButton.id = 'returnButton';
-            document.querySelector('.book-details-container').appendChild(returnButton);
-
-            // Event listener for returning to the list
-            returnButton.addEventListener('click', () => {
-                window.location.href = 'index.html#previousBooksTab'; // Adjust the URL if needed
-            });
         } else {
-            document.body.textContent = 'Book details not found.';
+            console.error(`Error: No book found for month "${bookMonth}".`);
+            document.body.textContent = 'Error: Book details not found.';
         }
     })
     .catch(error => {
         console.error('Error loading books:', error);
+        document.body.textContent = 'Error loading book details.';
     });
