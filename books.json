@@ -61,8 +61,8 @@
         "author": "R.K. Russel",
         "genre": "Memoir",
         "pages": 304,
-        "wordCount": 0,
-        "averageRating": 0,
+        "wordCount": 81995,
+        "averageRating": 7.0,
         "imageUrl": "pictures/june.jpg"
     },
     {
@@ -73,7 +73,7 @@
         "genre": "Historical Alternate Fiction",
         "pages": 849,
         "wordCount": 266800,
-        "averageRating": 0,
+        "averageRating": 9.6,
         "imageUrl": "pictures/july.jpg"
     },
     {
@@ -84,7 +84,51 @@
         "genre": "Fantasy",
         "pages": 272,
         "wordCount": 85000,
-        "averageRating": 0,
+        "averageRating": 7.3,
         "imageUrl": "pictures/august.jpg"
+    },
+    {
+        "month": "September",
+        "selector": "Adam",
+        "title": "The Girl with the Dragon Tattoo",
+        "author": "Stieg Larsson",
+        "genre": "Fiction",
+        "pages": 480,
+        "wordCount": 184635,
+        "averageRating": 8.5,
+        "imageUrl": "pictures/september.jpg"
+    },
+    {
+        "month": "October",
+        "selector": "Mikayla",
+        "title": "The Ministry of Time",
+        "author": "Kaliane Bradley",
+        "genre": "Science Fiction",
+        "pages": 352,
+        "wordCount": 96097,
+        "averageRating": 7.6,
+        "imageUrl": "pictures/october.jpg"
+    },
+    {
+        "month": "November",
+        "selector": "Catherine",
+        "title": "Eruption",
+        "author": "Michael Crichton and James Patterson",
+        "genre": "Ficton/Thriller",
+        "pages": 432,
+        "wordCount": 97582,
+        "averageRating": 8.0,
+        "imageUrl": "pictures/november.jpg"
+    },
+    {
+        "month": "December",
+        "selector": "Louis",
+        "title": "The Color of Law",
+        "author": "Richard Rothstein",
+        "genre": "Non-Ficton",
+        "pages": 368,
+        "wordCount": 88675,
+        "averageRating": 10,
+        "imageUrl": "pictures/december.jpg"
     }
 ]

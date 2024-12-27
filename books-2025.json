@@ -1,0 +1,134 @@
+[
+    {
+        "month": "Janurary",
+		"selector": "Jordan",
+		"title": "The Swpord of Kaigen",
+        "author": "M.L. Wang",
+        "genre": "Fantasy",
+        "pages": 651,
+        "wordCount": 214226,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/january.jpg"
+    },
+    {
+		"month": "February",
+		"selector": "Adam",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/february.jpg"
+    },
+    {
+		"month": "March",
+		"selector": "Mikayla",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/march.jpg"
+    },
+	{
+		"month": "April",
+		"selector": "Catherine",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/april.jpg"
+    },
+	{
+		"month": "May",
+		"selector": "Matt R",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/may.jpg"
+    },
+    {
+        "month": "June",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/june.jpg"
+    },
+    {
+        "month": "July",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/july.jpg"
+    },
+    {
+        "month": "August",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/august.jpg"
+    },
+    {
+        "month": "September",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/september.jpg"
+    },
+    {
+        "month": "October",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/october.jpg"
+    },
+    {
+        "month": "November",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/november.jpg"
+    },
+    {
+        "month": "December",
+        "selector": "",
+        "title": "",
+        "author": "",
+        "genre": "",
+        "pages": 0,
+        "wordCount": 0,
+        "averageRating": 0,
+        "imageUrl": "pictures/2025/december.jpg"
+    }
+]
